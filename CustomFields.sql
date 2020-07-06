@@ -1,5 +1,5 @@
 SELECT 
-       pickitem.[SVALUE] AS METER_SIZE
+       pickitem.[SVALUE]
       ,perm.PERMIT_NUMBER
       ,perm.WORK_CLASS
       ,perm.DESCRIPTION
@@ -13,10 +13,4 @@ SELECT
   INNER JOIN CUSTOMFIELDPICKLISTITEM pickitem ON collst.PICKLISTVALUE = pickitem.GCUSTOMFIELDPICKLISTITEM
   INNER JOIN CUSTOMFIELDPICKLIST picklist ON  pickitem.FKGCUSTOMFIELDPICKLIST = picklist.GCUSTOMFIELDPICKLIST
   INNER JOIN CUSTOMFIELD customfield ON picklist.FKGCUSTOMFIELD = customfield.GCUSTOMFIELD
-  WHERE SCUSTOMFIELD = 'Meter Size' AND
-        PERMIT_TYPE <> 'Structure' AND
-        SVALUE NOT IN (
-         '1"'
-        ,'2"'
-        ,'3/4"'
-        ) and permit_status <> 'void'
+  
